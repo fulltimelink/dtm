@@ -25,17 +25,17 @@ cover_test:
 	./helper/test-cover.sh
 
 
-VERSION=0.0.3
+VERSION=v1.18.0
 APP_NAME=dtm
 
 # 构建linux amd64环境下的可执行文件
 .PHONY: linux
 linux:
-	GOOS=linux GOARCH=amd64 go build
+	GOOS=linux GOARCH=amd64 go build -ldflags "-X main.Version=$(VERSION)"
 
 .PHONY: docker
 docker:
-	docker build -t $(APP_NAME):v$(VERSION) .
-	docker tag $(APP_NAME):v$(VERSION) hub-tx.dianzhenkeji.com/fulltimelink/$(APP_NAME):v$(VERSION)
+	docker build -t $(APP_NAME):$(VERSION) .
+	docker tag $(APP_NAME):$(VERSION) hub-tx.dianzhenkeji.com/fulltimelink/$(APP_NAME):$(VERSION)
 	docker login https://hub-tx.dianzhenkeji.com/
-	docker push hub-tx.dianzhenkeji.com/fulltimelink/$(APP_NAME):v$(VERSION)
+	docker push hub-tx.dianzhenkeji.com/fulltimelink/$(APP_NAME):$(VERSION)
