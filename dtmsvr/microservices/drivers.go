@@ -8,5 +8,6 @@ import (
 	_ "github.com/dtm-labs/dtmdriver-kratos"
 	_ "github.com/dtm-labs/dtmdriver-polaris"
 	_ "github.com/dtm-labs/dtmdriver-springcloud"
+	_ "github.com/fulltimelink/dtmdriver-kratos"
 	_ "github.com/zhufuyi/dtmdriver-sponge"
 )
